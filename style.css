@@ -1,15 +1,15 @@
 :root {
-  --bg-primary: #0c0c0c;
-  --bg-secondary: #1a1a1a;
-  --bg-card: #242424;
-  --text-primary: #e0e0e0;
-  --text-secondary: #888;
-  --accent-imperial: #ff4444;
-  --accent-rebel: #4a9eff;
-  --accent-gold: #ffd700;
-  --border: #333;
-  --glow-red: rgba(255, 68, 68, 0.3);
-  --glow-blue: rgba(74, 158, 255, 0.3);
+  /* PostHog‑inspired palette */
+  --bg-primary: #f5f7fa;          /* light gray background */
+  --bg-secondary: #ffffff;        /* white cards */
+  --bg-card: #ffffff;
+  --text-primary: #212529;        /* dark text */
+  --text-secondary: #6c757d;      /* muted text */
+  --accent-primary: #5c6bc0;      /* deep purple */
+  --accent-secondary: #00bcd4;    /* teal accent */
+  --border: #e0e0e0;
+  --glow-primary: rgba(92, 107, 192, 0.2);
+  --glow-secondary: rgba(0, 188, 212, 0.2);
 }
 
 * {
