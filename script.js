@@ -55,3 +55,38 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.odds-list').forEach(el => {
   observer.observe(el);
 });
+
+// Form handling for contact page
+function showStatus(message, success = true) {
+  const el = document.getElementById('statusMessage');
+  if (!el) return;
+  el.textContent = message;
+  el.className = success ? 'success' : 'error';
+  el.classList.remove('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('leadForm');
+  if (!form) return; // not the contact page
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      message: form.message.value.trim()
+    };
+    try {
+      const resp = await fetch('https://example.com/webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!resp.ok) throw new Error('Network response was not ok');
+      showStatus('Thank you, we’ll be in touch.', true);
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      showStatus('Oops – something went wrong. Please try again later.', false);
+    }
+  });
+});
